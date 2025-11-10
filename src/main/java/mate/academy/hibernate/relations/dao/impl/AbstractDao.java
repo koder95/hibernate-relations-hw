@@ -36,6 +36,8 @@ public abstract class AbstractDao {
     protected <T> Optional<T> find(Class<T> entityType, Long id) {
         try (Session session = factory.openSession()) {
             return Optional.ofNullable(session.find(entityType, id));
+        } catch (Exception e) {
+            throw new DataProcessingException("Cannot find id: " + id + " [" + entityType + "]", e);
         }
     }
 }

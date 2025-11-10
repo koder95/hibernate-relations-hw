@@ -20,11 +20,11 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public Country add(Country country) {
-        return null;
+        return dao.add(country);
     }
 
     @Override
     public Country get(Long id) {
-        return null;
+        return dao.get(id).orElseThrow();
     }
 }
